@@ -27,8 +27,11 @@ $client
 		'User-Agent'        => $userAgent,
 		'Date'              => $date,
 		'X-Zend-Signature'  => $keyName.';' . $signature,
-		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.3'
-	))->setParameterGet('eventsGroupId', 7);
+		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.7'
+	))
+	->setParameterGet('applicationId', 7)
+	->setParameterGet('retrieveGlobal', 'FALSE')
+;
         
 $client->setConfig(array('timeout' => 60));
 $response = $client->request(Zend_Http_Client::GET);
