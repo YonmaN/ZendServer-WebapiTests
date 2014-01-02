@@ -31,7 +31,7 @@ $client
 		'X-Zend-Signature'  => "$keyName;$signature",
 		'Accept'	=> 'application/vnd.zend.serverapi+xml'
 	))
-	->getRequest()->getPost()->fromArray(array('traceFile' => array('0.8327.1')));
+	->getRequest()->getPost()->fromArray(array('traceFile' => array('0.31561.2', '0.13881.1')));
 	
 	
 //	$client->setCookie('debug_host', '10.1.2.174');
@@ -44,8 +44,6 @@ $client
 //$client->setParameterGet('nodekey', '1234');
 $response = $client->send();
 echo '<pre>';
-echo print_r($response->getHeaders());
 echo PHP_EOL;
-echo $response->getBody();
-file_put_contents('/tmp/boom.amf', $response->getBody());
+echo htmlentities($response->getBody());
 
