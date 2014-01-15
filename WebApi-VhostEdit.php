@@ -6,7 +6,7 @@ $client
 	->setEncType(\Zend\Http\Client::ENC_FORMDATA)
 	->setMethod('POST')
 	->getRequest()->getPost()->fromArray(
-	    array('vhostId' => 4, 'template' => '
+	    array('vhostId' => 6, 'template' => '
 # Created by Zend Server
 
 <VirtualHost *:${port}>

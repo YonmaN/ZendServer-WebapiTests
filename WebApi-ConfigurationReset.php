@@ -1,14 +1,10 @@
 <?php
 require_once 'bootstrap.php';
-                                       
-$client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/vhostGetStatus');
-$client
-	->setMethod('GET')
-	->getRequest()->getQuery()->fromArray(
-	    array('limit' => 0, 'offset' => 1, 'vhosts' => array('1', '4'))
-    );
-	
-	
+
+$client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/configurationReset');
+$client->setMethod('POST');
+
+
 //	$client->setCookie('debug_host', '10.1.2.174');
 //	$client->setCookie('debug_port', '10137');
 //	$client->setCookie('_bm', '2897');
