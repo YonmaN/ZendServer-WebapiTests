@@ -25,7 +25,7 @@ $client
 		'User-Agent'        => $userAgent,
 		'Date'              => $date,
 		'X-Zend-Signature'  => $WebapiKey->NAME.';' . $signature,
-		'Accept'	=> 'application/vnd.zend.serverapi+json;version=1.3'
+		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.7'
 	))
 	->setParameterPost('templateName', 'audit')
 	->setParameterPost('to', 'yonni.m@zend.net')

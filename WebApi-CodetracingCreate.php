@@ -1,8 +1,11 @@
 <?php
 require_once 'bootstrap.php';
                                        
-$client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/codetracingDisable');
+$client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/codetracingCreate');
 $client->setMethod('POST');
+$client->getRequest()->getPost()->fromArray(array(
+	'url' => 'http://localhost/samples'
+));
 	
 	
 //	$client->setCookie('debug_host', '10.1.2.174');

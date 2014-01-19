@@ -1,8 +1,11 @@
 <?php
 require_once 'bootstrap.php';
                                        
-$client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/codetracingDisable');
-$client->setMethod('POST');
+$client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/configurationValidateDirectives');
+$client->setMethod('GET');
+$client->getRequest()->getQuery()->fromArray(array(
+	'directives' => array('bcmath.scale12' => '0')
+));
 	
 	
 //	$client->setCookie('debug_host', '10.1.2.174');
