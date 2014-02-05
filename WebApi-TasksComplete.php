@@ -27,7 +27,7 @@ $client
 		'User-Agent'        => $userAgent,
 		'Date'              => $date,
 		'X-Zend-Signature'  => $keyName.';' . $signature,
-		'Accept'	=> 'application/vnd.zend.serverapi+json;version=1.3'
+		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.3'
 	));
         
 $client->setConfig(array('timeout' => 60));

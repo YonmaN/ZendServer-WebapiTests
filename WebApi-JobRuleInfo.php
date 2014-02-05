@@ -29,7 +29,7 @@ $client
 		'X-Zend-Signature'  => $keyName.';' . $signature,
 		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.3'
 	))
-	->setParameterGet('id', 3);
+	->setParameterGet('id', 1);
 
 //	$client->setCookie('debug_host', '10.1.2.174');
 //	$client->setCookie('debug_port', '10137');

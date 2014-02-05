@@ -31,7 +31,7 @@ $client
 	))
 	->setFileUpload('/usr/zlocal/packaging/qa-stuff/apps/sanity/sanity.zpk', 'fileupload');
 
-$client->setParameterPost('baseUrl', 'http://sadfasdfasdf1235:80/asdfasdf1');
+$client->setParameterPost('baseUrl', 'https://sadfasdfasdf1235:80/asdfasdf1');
 //$client->setParameterPost('baseUrl', 'http://asdfasdf/asdf2as3df');
 $client->setParameterPost('userAppName', 'asdfasd12346asd');
 $client->setParameterPost('defaultServer', 'TRUE');
