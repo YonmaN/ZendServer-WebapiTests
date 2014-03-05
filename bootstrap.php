@@ -76,6 +76,11 @@ class WebAPIClient extends \Zend\Http\Client {
         $this->webapiKey = $db->query('SELECT * FROM GUI_WEBAPI_KEYS WHERE NAME = \'admin\' LIMIT 1', Adapter::QUERY_MODE_EXECUTE)->current();
     }
     
+    public function setWebapiOutput($output) {
+    	$this->output = $output;
+    	return $this;
+    }
+    
     protected function doRequest(Http $uri, $method, $secure = false, $headers = array(), $body = '') {
         
         $headers['User-Agent'] = 'Zend the first';
