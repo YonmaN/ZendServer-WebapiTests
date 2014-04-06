@@ -62,6 +62,8 @@ class WebAPIClient extends \Zend\Http\Client {
      */
     private $output = 'xml';
     
+    public $sign = true;
+    
     public function __construct($uri = null, $options = null) {
         parent::__construct($uri, $options);
         
@@ -86,15 +88,17 @@ class WebAPIClient extends \Zend\Http\Client {
         $headers['User-Agent'] = 'Zend the first';
         $headers['Date'] = gmdate('D, d M Y H:i:s') . ' GMT';
         
-        $signatureGenerator = new \WebAPI\SignatureGenerator();
-        $signature =
-        $signatureGenerator->setHost("{$uri->getHost()}:{$uri->getPort()}")
-            ->setUserAgent($headers['User-Agent'])
-            ->setDate($headers['Date'])
-            ->setRequestUri($uri->getPath())
-            ->generate($this->webapiKey->HASH);
-        
-        $headers['X-Zend-Signature'] = "{$this->webapiKey->NAME};$signature";
+        if ($this->sign) {
+	        $signatureGenerator = new \WebAPI\SignatureGenerator();
+	        $signature =
+	        $signatureGenerator->setHost("{$uri->getHost()}:{$uri->getPort()}")
+	            ->setUserAgent($headers['User-Agent'])
+	            ->setDate($headers['Date'])
+	            ->setRequestUri($uri->getPath())
+	            ->generate($this->webapiKey->HASH);
+	        
+	        $headers['X-Zend-Signature'] = "{$this->webapiKey->NAME};$signature";
+        }
         $headers['Accept'] = "application/vnd.zend.serverapi+{$this->output};version={$this->version}";
         
         if ($method == 'POST') {

@@ -28,7 +28,7 @@ $client
 		'Date'              => $date,
 		'X-Zend-Signature'  => $keyName.';' . $signature,
 		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.5'
-	));
+	))->setParameterPost('history', 1);
 
 //	$client->setCookie('debug_host', '10.1.2.174');
 //	$client->setCookie('debug_port', '10137');

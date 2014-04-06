@@ -27,10 +27,10 @@ $client
 		'X-Zend-Signature'  => $WebapiKey->NAME.';' . $signature,
 		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.7'
 	))
-	->setParameterPost('templateName', 'audit')
+	->setParameterPost('templateName', 'event')
 	->setParameterPost('to', 'yonni.m@zend.net')
 	->setParameterPost('from', 'yonni.m@zend.com')
-	->setParameterPost('templateParams', array('type' => 11))
+	->setParameterPost('templateParams', array('eventGroupId' => 0))
 ;
 
         
