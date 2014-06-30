@@ -27,13 +27,16 @@ $client
 		'User-Agent'        => $userAgent,
 		'Date'              => $date,
 		'X-Zend-Signature'  => $keyName.';' . $signature,
-		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.3'
+		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.8'
 	))
 // 	->setParameterGet('snapshotName', 'sadfsdafsafd')
 ;
         
 $client->setConfig(array('timeout' => 60));
 $response = $client->request(Zend_Http_Client::GET);
-echo $response->getBody();
 
+file_put_contents('/tmp/config-test.zip', $response->getBody());
 
+$zip = new ZipArchive();
+$zip->open('/tmp/config-test.zip');
+echo $zip->getStatusString();

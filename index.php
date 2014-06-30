@@ -9,3 +9,7 @@
 </ul>
 </body>
 </html>
+<?php session_start() ?>
+<?php $_SESSION['new'][] = 1; ?>
+<?php $_SESSION['mod']++; ?>
+<?php if (isset($_SESSION['rem'])) {unset($_SESSION['rem']);} else $_SESSION['rem'] = 1; ?>

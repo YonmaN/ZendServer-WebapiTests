@@ -4,7 +4,7 @@ require_once 'bootstrap.php';
 $client = new WebAPIClient('http://yonni-desktop:10081/ZendServer/Api/configurationImport');
 $client
 ->setMethod('POST')
-->setFileUpload('/home/yonni/Downloads/zs_config_2014_04_06_10_11_36.zip', 'fileupload');
+->setFileUpload('/tmp/config-test.zip', 'fileupload');
 
 
 //	$client->setCookie('debug_host', '10.1.2.174');
