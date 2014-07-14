@@ -27,13 +27,13 @@ $client
 		'User-Agent'        => $userAgent,
 		'Date'              => $date,
 		'X-Zend-Signature'  => $keyName.';' . $signature,
-		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.6'
+		'Accept'	=> 'application/vnd.zend.serverapi+xml;version=1.9'
 	))
 	->setFileUpload('/usr/zlocal/packaging/qa-stuff/apps/sanity/sanity.zpk', 'fileupload');
 
-$client->setParameterPost('baseUrl', 'https://sadfasdfasdf1235:80/asdfasdf1');
+$client->setParameterPost('baseUrl', 'http://sadfasdfasdf1235:80/asdfasdf1');
 //$client->setParameterPost('baseUrl', 'http://asdfasdf/asdf2as3df');
-$client->setParameterPost('userAppName', 'asdfasd12346asd');
+$client->setParameterPost('userAppName', 'mtrig');
 $client->setParameterPost('defaultServer', 'TRUE');
 $client->setParameterPost('createVhost', 'TRUE');
 $client->setParameterPost('userParams', array(
@@ -48,6 +48,7 @@ $client->setParameterPost('userParams', array(
 
 $client->setConfig(array('timeout' => 60));
 $response = $client->request(Zend_Http_Client::POST);
+echo $response->getStatus();
 echo cleaning(nl2br(htmlentities($response->getBody())));
 
 
